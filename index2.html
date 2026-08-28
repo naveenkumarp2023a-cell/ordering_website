@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Order Confirmation</title>
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Page Heading -->
+    <h1>Food Order Confirmation</h1>
+
+    <!-- Order Summary Section -->
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Margherita Pizza</td>
+            <td>2</td>
+            <td>₹599</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2"><strong>Total</strong></td>
+            <td><strong>₹599</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- Customer Details Form -->
+    <div class="form-section">
+      <h2>Customer Details</h2>
+
+      <form id="orderForm">
+
+        <!-- Customer Name -->
+        <div class="form-group">
+          <label for="customerName">Customer Name:</label>
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Enter your full name"
+          />
+        </div>
+
+        <!-- Delivery Address -->
+        <div class="form-group">
+          <label for="deliveryAddress">Delivery Address:</label>
+          <textarea
+            id="deliveryAddress"
+            rows="3"
+            placeholder="Enter your delivery address"
+          ></textarea>
+        </div>
+
+        <!-- Payment Method (Radio Buttons) -->
+        <div class="form-group">
+          <label>Payment Method:</label>
+          <div class="radio-group">
+
+            <label class="radio-label">
+              <input type="radio" name="payment" value="Cash on Delivery" />
+              Cash on Delivery
+            </label>
+
+            <label class="radio-label">
+              <input type="radio" name="payment" value="UPI" />
+              UPI
+            </label>
+
+            <label class="radio-label">
+              <input type="radio" name="payment" value="Credit / Debit Card" />
+              Credit / Debit Card
+            </label>
+
+          </div>
+        </div>
+
+        <!-- Error Message (hidden by default) -->
+        <p id="errorMessage" class="error-message"></p>
+
+        <!-- Success Message (hidden by default) -->
+        <p id="successMessage" class="success-message"></p>
+
+        <!-- Place Order Button -->
+        <button type="button" id="placeOrderBtn" onclick="placeOrder()">
+          Place Order
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+
+  <script src="script2.js"></script>
+</body>
+</html>
