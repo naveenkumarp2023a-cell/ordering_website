@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== META & SEO ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TastyBite – Review and confirm your food order. Fast delivery, best quality, secure payment." />
+  <title>Order Confirmation | TastyBite</title>
+
+  <!-- ===== GOOGLE FONTS ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ===== FONT AWESOME ICONS ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ===== STYLESHEET ===== -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+
+      <!-- Logo -->
+      <a href="#" class="logo" aria-label="TastyBite home">
+        <span class="logo-icon" aria-hidden="true">
+          <i class="fa-solid fa-fire-flame-curved"></i>
+        </span>
+        <span class="logo-text">TastyBite</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#" class="nav-link">Menu</a>
+        <a href="#" class="nav-link">Offers</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Cart & Hamburger -->
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Shopping cart, 3 items">
+          <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+          <span class="cart-badge" aria-live="polite">3</span>
+        </button>
+        <!-- Mobile hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNav">
+          <span class="ham-bar"></span>
+          <span class="ham-bar"></span>
+          <span class="ham-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+      <a href="#" class="mobile-nav-link">Home</a>
+      <a href="#" class="mobile-nav-link">Menu</a>
+      <a href="#" class="mobile-nav-link">Offers</a>
+      <a href="#" class="mobile-nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       PAGE TITLE BANNER
+  ============================================================ -->
+  <section class="page-banner" aria-labelledby="pageBannerTitle">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="#" class="breadcrumb-link">Home</a>
+        <i class="fa-solid fa-chevron-right breadcrumb-sep" aria-hidden="true"></i>
+        <a href="#" class="breadcrumb-link">Menu</a>
+        <i class="fa-solid fa-chevron-right breadcrumb-sep" aria-hidden="true"></i>
+        <span class="breadcrumb-current" aria-current="page">Order Confirmation</span>
+      </nav>
+
+      <h1 id="pageBannerTitle" class="page-title">Order Confirmation</h1>
+      <p class="page-subtitle">Review your order and complete your delivery details.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main class="main-content" id="mainContent">
+    <div class="container">
+
+      <!-- SUCCESS CARD (hidden by default, shown after valid order) -->
+      <div class="success-card" id="successCard" role="alert" aria-live="polite" aria-atomic="true" hidden>
+        <div class="success-icon-wrap" aria-hidden="true">
+          <i class="fa-solid fa-circle-check success-icon"></i>
+        </div>
+        <h2 class="success-title">Order Placed Successfully!</h2>
+        <p class="success-msg" id="successMsg"></p>
+        <div class="success-details" id="successDetails"></div>
+        <button class="btn-continue" id="continueBtn" onclick="resetPage()">
+          <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+          Continue Shopping
+        </button>
+      </div>
+
+      <!-- TWO-COLUMN LAYOUT -->
+      <div class="order-grid" id="orderGrid">
+
+        <!-- ===== LEFT CARD: YOUR ORDER ===== -->
+        <section class="card order-summary" aria-labelledby="orderSummaryTitle">
+          <div class="card-header">
+            <h2 id="orderSummaryTitle" class="card-title">
+              <i class="fa-solid fa-receipt" aria-hidden="true"></i>
+              Your Order
+            </h2>
+            <span class="item-count">3 items</span>
+          </div>
+
+          <ul class="order-items" aria-label="Order items list">
+
+            <!-- Item 1: Margherita Pizza -->
+            <li class="order-item">
+              <div class="item-img-wrap">
+                <img
+                  src="images/pizza.png"
+                  alt="Margherita Pizza"
+                  class="item-img"
+                  loading="lazy"
+                  onerror="this.src='https://placehold.co/80x80/FF5A00/white?text=%F0%9F%8D%95'"
+                />
+              </div>
+              <div class="item-info">
+                <h3 class="item-name">Margherita Pizza</h3>
+                <p class="item-desc">Classic tomato, mozzarella &amp; basil</p>
+                <div class="item-meta">
+                  <span class="item-qty">x2</span>
+                  <span class="item-unit-price">&#8377;249 each</span>
+                </div>
+              </div>
+              <div class="item-price" aria-label="Price Rs.498">&#8377;498</div>
+            </li>
+
+            <!-- Item 2: Veg Burger -->
+            <li class="order-item">
+              <div class="item-img-wrap">
+                <img
+                  src="images/burger.png"
+                  alt="Veg Burger"
+                  class="item-img"
+                  loading="lazy"
+                  onerror="this.src='https://placehold.co/80x80/FF5A00/white?text=%F0%9F%8D%94'"
+                />
+              </div>
+              <div class="item-info">
+                <h3 class="item-name">Veg Burger</h3>
+                <p class="item-desc">Fresh veggies, crispy patty &amp; special sauce</p>
+                <div class="item-meta">
+                  <span class="item-qty">x1</span>
+                  <span class="item-unit-price">&#8377;149 each</span>
+                </div>
+              </div>
+              <div class="item-price" aria-label="Price Rs.149">&#8377;149</div>
+            </li>
+
+            <!-- Item 3: Pasta Alfredo -->
+            <li class="order-item">
+              <div class="item-img-wrap">
+                <img
+                  src="images/pasta.png"
+                  alt="Pasta Alfredo"
+                  class="item-img"
+                  loading="lazy"
+                  onerror="this.src='https://placehold.co/80x80/FF5A00/white?text=%F0%9F%8D%9D'"
+                />
+              </div>
+              <div class="item-info">
+                <h3 class="item-name">Pasta Alfredo</h3>
+                <p class="item-desc">Creamy white sauce fettuccine with parmesan</p>
+                <div class="item-meta">
+                  <span class="item-qty">x1</span>
+                  <span class="item-unit-price">&#8377;199 each</span>
+                </div>
+              </div>
+              <div class="item-price" aria-label="Price Rs.199">&#8377;199</div>
+            </li>
+          </ul>
+
+          <!-- Divider -->
+          <hr class="divider" />
+
+          <!-- Pricing Breakdown -->
+          <div class="price-breakdown" aria-label="Price summary">
+            <div class="price-row">
+              <span class="price-label">
+                <i class="fa-solid fa-tag" aria-hidden="true"></i>Subtotal
+              </span>
+              <span class="price-value">&#8377;846</span>
+            </div>
+            <div class="price-row">
+              <span class="price-label">
+                <i class="fa-solid fa-truck" aria-hidden="true"></i>Delivery Fee
+              </span>
+              <span class="price-value">&#8377;40</span>
+            </div>
+            <hr class="divider slim" />
+            <div class="price-row total-row">
+              <span class="price-label total-label">Total Amount</span>
+              <span class="price-value total-value">&#8377;886</span>
+            </div>
+          </div>
+
+          <!-- Delivery time estimate -->
+          <div class="delivery-estimate">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            <span>Estimated delivery: <strong>30-45 minutes</strong></span>
+          </div>
+        </section>
+        <!-- END LEFT CARD -->
+
+        <!-- ===== RIGHT CARD: DELIVERY DETAILS ===== -->
+        <section class="card delivery-form-card" aria-labelledby="deliveryDetailsTitle">
+          <div class="card-header">
+            <h2 id="deliveryDetailsTitle" class="card-title">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              Delivery Details
+            </h2>
+          </div>
+
+          <form id="orderForm" novalidate aria-label="Delivery and payment details form">
+
+            <!-- Full Name -->
+            <div class="form-group" id="nameGroup">
+              <label for="customerName" class="form-label">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                Full Name <span class="required-star" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="customerName"
+                name="customerName"
+                class="form-input"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+                aria-required="true"
+                aria-describedby="nameError"
+              />
+              <span class="field-error" id="nameError" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group" id="phoneGroup">
+              <label for="phoneNumber" class="form-label">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                Phone Number <span class="required-star" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                class="form-input"
+                placeholder="Enter your 10-digit phone number"
+                autocomplete="tel"
+                maxlength="10"
+                required
+                aria-required="true"
+                aria-describedby="phoneError"
+              />
+              <span class="field-error" id="phoneError" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Delivery Address -->
+            <div class="form-group" id="addressGroup">
+              <label for="deliveryAddress" class="form-label">
+                <i class="fa-solid fa-map-marker-alt" aria-hidden="true"></i>
+                Delivery Address <span class="required-star" aria-hidden="true">*</span>
+              </label>
+              <textarea
+                id="deliveryAddress"
+                name="deliveryAddress"
+                class="form-textarea"
+                placeholder="Enter your complete delivery address (street, area, city, pincode)"
+                rows="4"
+                required
+                aria-required="true"
+                aria-describedby="addressError"
+              ></textarea>
+              <span class="field-error" id="addressError" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="form-group" id="paymentGroup">
+              <p class="form-label" id="paymentLabel">
+                <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                Payment Method <span class="required-star" aria-hidden="true">*</span>
+              </p>
+              <div class="payment-options" role="radiogroup" aria-labelledby="paymentLabel" aria-describedby="paymentError">
+
+                <!-- Option 1: Card -->
+                <label class="payment-card" for="payCard">
+                  <input
+                    type="radio"
+                    id="payCard"
+                    name="paymentMethod"
+                    value="Credit / Debit Card"
+                    class="payment-radio"
+                  />
+                  <span class="payment-card-inner">
+                    <span class="payment-icon-wrap">
+                      <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                    </span>
+                    <span class="payment-text">
+                      <span class="payment-title">Credit / Debit Card</span>
+                      <span class="payment-sub">Visa, Mastercard, RuPay</span>
+                    </span>
+                    <span class="payment-check" aria-hidden="true">
+                      <i class="fa-solid fa-circle-check"></i>
+                    </span>
+                  </span>
+                </label>
+
+                <!-- Option 2: UPI -->
+                <label class="payment-card" for="payUpi">
+                  <input
+                    type="radio"
+                    id="payUpi"
+                    name="paymentMethod"
+                    value="UPI"
+                    class="payment-radio"
+                  />
+                  <span class="payment-card-inner">
+                    <span class="payment-icon-wrap">
+                      <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+                    </span>
+                    <span class="payment-text">
+                      <span class="payment-title">UPI</span>
+                      <span class="payment-sub">GPay, PhonePe, Paytm, BHIM</span>
+                    </span>
+                    <span class="payment-check" aria-hidden="true">
+                      <i class="fa-solid fa-circle-check"></i>
+                    </span>
+                  </span>
+                </label>
+
+                <!-- Option 3: COD -->
+                <label class="payment-card" for="payCod">
+                  <input
+                    type="radio"
+                    id="payCod"
+                    name="paymentMethod"
+                    value="Cash on Delivery"
+                    class="payment-radio"
+                  />
+                  <span class="payment-card-inner">
+                    <span class="payment-icon-wrap">
+                      <i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i>
+                    </span>
+                    <span class="payment-text">
+                      <span class="payment-title">Cash on Delivery</span>
+                      <span class="payment-sub">Pay when your order arrives</span>
+                    </span>
+                    <span class="payment-check" aria-hidden="true">
+                      <i class="fa-solid fa-circle-check"></i>
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <span class="field-error" id="paymentError" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Promo Code -->
+            <div class="promo-row">
+              <input type="text" id="promoCode" class="promo-input" placeholder="Have a promo code?" aria-label="Promo code" />
+              <button type="button" class="promo-btn" id="promoBtn">Apply</button>
+            </div>
+
+            <!-- Place Order Button -->
+            <button type="submit" class="btn-place-order" id="placeOrderBtn">
+              <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+              <span>Place Order</span>
+              <span class="btn-total">&#8377;886</span>
+            </button>
+
+            <!-- Secure notice -->
+            <p class="secure-notice">
+              <i class="fa-solid fa-lock" aria-hidden="true"></i>
+              100% Secure &amp; Encrypted Payment
+            </p>
+          </form>
+        </section>
+        <!-- END RIGHT CARD -->
+
+      </div><!-- /order-grid -->
+    </div><!-- /container -->
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+
+      <!-- Footer Top -->
+      <div class="footer-top">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i>
+            TastyBite
+          </div>
+          <p class="footer-tagline">Delicious food delivered to your door, fast and fresh.</p>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Features -->
+        <div class="footer-col">
+          <h3 class="footer-heading">Why TastyBite?</h3>
+          <ul class="footer-features">
+            <li><i class="fa-solid fa-bolt" aria-hidden="true"></i> Fast Delivery</li>
+            <li><i class="fa-solid fa-star" aria-hidden="true"></i> Best Quality</li>
+            <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Secure Payment</li>
+            <li><i class="fa-solid fa-headset" aria-hidden="true"></i> 24/7 Support</li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <h3 class="footer-heading">Contact Us</h3>
+          <address class="footer-contact">
+            <p><i class="fa-solid fa-phone" aria-hidden="true"></i> +91 98765 43210</p>
+            <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> hello@tastybite.in</p>
+            <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 42, MG Road, Bengaluru</p>
+          </address>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copy">&#169; 2026 TastyBite. All rights reserved.</p>
+        <div class="footer-badges">
+          <span class="footer-badge"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Fast Delivery</span>
+          <span class="footer-badge"><i class="fa-solid fa-star" aria-hidden="true"></i> Best Quality</span>
+          <span class="footer-badge"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Secure Payment</span>
+          <span class="footer-badge"><i class="fa-solid fa-headset" aria-hidden="true"></i> 24/7 Support</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script src="script.js"></script>
+</body>
+</html>
